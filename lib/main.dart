@@ -3,4 +3,5 @@ import 'package:flutter/widgets.dart';
 
 void main() {
   final game = FlameGame();
-  runApp(GameWidget(game: game))
+  runApp(GameWidget(game: game));
+}
