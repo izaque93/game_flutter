@@ -6,12 +6,15 @@ import 'package:flame_game/objects/ground_block.dart';
 import 'package:flame_game/objects/platform_block.dart';
 import 'package:flame_game/objects/star.dart';
 import 'package:flutter/material.dart';
+import 'package:flame/events.dart';
 
 import 'actors/ember.dart';
 
-class EmberQuestGame extends FlameGame {
+class EmberQuestGame extends FlameGame with HasKeyboardHandlerComponents {
   late EmberPlayer _ember;
   double objectSpeed = 0.0;
+  late double lastBlockXPosition = 0.0;
+  late UniqueKey lastBlockKey;
 
   @override
   Future<void> onLoad() async {
@@ -33,6 +36,12 @@ class EmberQuestGame extends FlameGame {
     for (final block in segments[segmentIndex]) {
       switch (block.blockType) {
         case GroundBlock:
+          world.add(
+            GroundBlock(
+              gridPosition: block.gridPosition,
+              xOffset: xPositionOffset,
+            ),
+          );
         case PlatformBlock:
           add(PlatformBlock(
             gridPosition: block.gridPosition,
