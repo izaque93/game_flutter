@@ -39,7 +39,19 @@ class EmberQuestGame extends FlameGame {
             xOffset: xPositionOffset,
           ));
         case Star:
+          world.add(
+            Star(
+              gridPosition: block.gridPosition,
+              xOffset: xPositionOffset,
+            ),
+          );
         case WaterEnemy:
+          world.add(
+            WaterEnemy(
+              gridPosition: block.gridPosition,
+              xOffset: xPositionOffset,
+            ),
+          );
       }
     }
   }
@@ -61,6 +73,6 @@ class EmberQuestGame extends FlameGame {
 
   @override
   Color backgroundColor() {
-    return const Color.fromARGB(255, 173, 223, 247);
+    return const Color.fromARGB(255, 5, 17, 22);
   }
 }
