@@ -6,7 +6,7 @@ class MainMenu extends StatelessWidget {
   // Reference to parent game.
   final EmberQuestGame game;
 
-  const MainMenu({super.key, required this.game});
+  const MainMenu({required this.game, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,11 @@ class MainMenu extends StatelessWidget {
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 250,
+          height: 300,
           width: 300,
           decoration: const BoxDecoration(
             color: blackTextColor,
-            borderRadius: const BorderRadius.all(
+            borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
           ),

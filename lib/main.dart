@@ -1,9 +1,9 @@
 import 'package:flame/game.dart';
-import 'package:flame_game/overlays/game_over.dart';
-import 'package:flame_game/overlays/main_menu.dart';
 import 'package:flutter/material.dart';
 
 import 'ember_quest.dart';
+import 'overlays/game_over.dart';
+import 'overlays/main_menu.dart';
 
 void main() {
   runApp(

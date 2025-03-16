@@ -18,7 +18,7 @@ class Hud extends PositionComponent with HasGameReference<EmberQuestGame> {
   late TextComponent _scoreTextComponent;
 
   @override
-  Future<void> onLoad() async {
+  Future<void>? onLoad() async {
     _scoreTextComponent = TextComponent(
       text: '${game.starsCollected}',
       textRenderer: TextPaint(
@@ -52,10 +52,13 @@ class Hud extends PositionComponent with HasGameReference<EmberQuestGame> {
         ),
       );
     }
+
+    return super.onLoad();
   }
 
   @override
   void update(double dt) {
     _scoreTextComponent.text = '${game.starsCollected}';
+    super.update(dt);
   }
 }

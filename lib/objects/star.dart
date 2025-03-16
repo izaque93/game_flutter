@@ -17,7 +17,7 @@ class Star extends SpriteComponent with HasGameReference<EmberQuestGame> {
   }) : super(size: Vector2.all(64), anchor: Anchor.center);
 
   @override
-  void onLoad() {
+  Future<void> onLoad() async {
     final starImage = game.images.fromCache('star.png');
     sprite = Sprite(starImage);
     position = Vector2(
@@ -27,10 +27,10 @@ class Star extends SpriteComponent with HasGameReference<EmberQuestGame> {
     add(RectangleHitbox(collisionType: CollisionType.passive));
     add(
       SizeEffect.by(
-        Vector2(-24, -24),
+        Vector2.all(-24),
         EffectController(
-          duration: .75,
-          reverseDuration: .5,
+          duration: 0.75,
+          reverseDuration: 0.5,
           infinite: true,
           curve: Curves.easeOut,
         ),

@@ -6,8 +6,9 @@ import '../ember_quest.dart';
 class PlatformBlock extends SpriteComponent
     with HasGameReference<EmberQuestGame> {
   final Vector2 gridPosition;
-  final Vector2 velocity = Vector2.zero();
   double xOffset;
+
+  final Vector2 velocity = Vector2.zero();
 
   PlatformBlock({
     required this.gridPosition,
@@ -15,7 +16,7 @@ class PlatformBlock extends SpriteComponent
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
 
   @override
-  void onLoad() {
+  Future<void> onLoad() async {
     final platformImage = game.images.fromCache('block.png');
     sprite = Sprite(platformImage);
     position = Vector2(
