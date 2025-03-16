@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import '../ember_quest.dart';
 import '../managers/segment_manager.dart';
 
-class GroundBlock extends SpriteComponent with HasGameReference<EmberQuestGame> {
+class GroundBlock extends SpriteComponent
+    with HasGameReference<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
-  
+
   final UniqueKey _blockKey = UniqueKey();
   final Vector2 velocity = Vector2.zero();
 
@@ -52,6 +53,9 @@ class GroundBlock extends SpriteComponent with HasGameReference<EmberQuestGame> 
       if (game.lastBlockKey == _blockKey) {
         game.lastBlockXPosition = position.x + size.x - 10;
       }
+    }
+    if (game.health <= 0) {
+      removeFromParent();
     }
 
     super.update(dt);

@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../ember_quest.dart';
 
-class Star extends SpriteComponent
-    with HasGameReference<EmberQuestGame> {
+class Star extends SpriteComponent with HasGameReference<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 
@@ -43,7 +42,9 @@ class Star extends SpriteComponent
   void update(double dt) {
     velocity.x = game.objectSpeed;
     position += velocity * dt;
-    if (position.x < -size.x) removeFromParent();
+    if (position.x < -size.x || game.health <= 0) {
+      removeFromParent();
+    }
     super.update(dt);
   }
 }
